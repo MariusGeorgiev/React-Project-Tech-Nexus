@@ -1,0 +1,223 @@
+.container {
+    height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .form-container {
+    display: block;
+    
+  }
+  
+  .form-container.hidden {
+    display: none;
+  }
+  
+  .register {
+    width: 500px;
+    padding-top: 10em;
+  }
+  
+  form.register {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  form.register fieldset {
+      border-radius: 2em;
+      padding: 1.5em; 
+      background-color: brown;
+      border: 1px solid #03763b;
+    }
+  
+  .register h2 {
+    padding-top: 0;
+    border-bottom: none;
+    color: #333;
+  }
+  
+  .register p {
+    padding-top: 1rem;
+    margin: 0;
+  }
+  
+  .register input {
+    flex: 0 1 100%;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-left: 0.3em solid #28a745;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .register input:focus {
+    border-left-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .register i {
+    border: 1px solid #ccc;
+    border-right: none;
+    padding: 0.55em;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    background-color: #e9ecef;
+    color: #555;
+  }
+  
+  .register select {
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    background-color: #fff;
+  }
+  
+  
+  .register button {
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.7em 1.5em;
+    margin-top: 1.5rem;
+    width: 60%;
+    background-color: #007bff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .register button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .register button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
+  .register a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .register a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: #dc3545;
+    background-color: #f8d7da;
+    padding: 0.5em;
+    margin: 0.3em 0 0;
+    font-size: 0.9em;
+  }
+  
+  .input-error {
+    border-left-color: #dc3545;
+  }
+  
+  .notification {
+    background-color: #4caf50; 
+    color: white;
+    padding: 10px;
+    margin-top: 200px;
+    text-align: center;
+    border-radius: 5px;
+    position: fixed;
+    font-size: 4em;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .loader-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid #3498db; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+    /* on 175% */
+    @media screen and (max-width: 1400px) { 
+      .container {
+        padding-bottom: 0px;
+        padding-right: 50px;
+        padding-left: 50px;
+      }
+  
+      .register {
+        padding-top: 70px;
+      }
+    }
+  
+    /* on 200% */
+  @media screen and (max-width: 1200px) { 
+    .container {
+      padding-bottom: 0px;
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+  
+    .register {
+      padding-top: 40px;
+    }
+  }
+  
+   /* on 250% */
+   @media screen and (max-width: 1000px) {
+  
+    .container {
+      padding-bottom: 100px;
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+  
+    .login {
+      padding-top: 20px;
+    }
+  }
+  
+   /* on 300% */
+    @media screen and (max-width: 800px) { 
+      .container {
+        padding-bottom: 180px;
+        padding-right: 50px;
+        padding-left: 50px;
+      }
+    
+      .login {
+        padding-top: 0px;
+      }
+    }
+  
+  /* 0n 400% */
+  @media screen and (max-width: 600px) {
+    .container {
+      padding-bottom: 320px; 
+    }
+  
+    fieldset {
+      max-width: 100%; 
+    }
+  
+    .register {
+      width: 350px;
+      padding-top: 20px;
+    }
+  }
