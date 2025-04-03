@@ -1,0 +1,136 @@
+/* .edit-page {
+    padding-top: 100px;
+} */
+
+section {
+    color: white;
+  }
+  
+  .edit-page {
+    height: auto; 
+  }
+  
+  form {
+    padding-top: 50px;
+    padding-bottom: 129px;
+  }
+  
+  .container {
+    max-width: 1000px;
+   min-height: 800px;
+   margin: 0 auto;
+   border-radius: 20px;
+   box-sizing: border-box;
+   box-shadow: 0px 0px 32px 0px #2e5c8e, -14px -14px 20px #a0acc0;
+    background-color: #7880b1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  .container h1 {
+    padding-top: 20px;
+    padding-bottom: 1em;
+    font-size: 1.8em;
+    color: #ffffff;
+  }
+  
+  input[type="text"],
+  select,
+  textarea {
+    width: 90%;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 1em;
+  
+  }
+  
+  textarea {
+    min-height: 25vh;
+    padding: 1em;
+    margin-top: 10px;
+    text-align: left;
+    resize: none; 
+  }
+  
+  
+  #title {
+    margin-top: 10px;
+    height: 30px;
+  }
+  
+  .category {
+    width: 75%;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+  
+  select {
+    font-size: 1.1em;
+    border-radius: 20px;
+    width: 70%;
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+  }
+  
+  .btn {
+    font-size: 1.2em;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1em;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #db4141;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn:hover {
+    scale: 1.2;
+    background-color: rgb(246, 0, 0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .changeImageButton {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  
+  }
+  
+  .custom-file-upload {
+    font-size: 1.2em;
+    background-color:  #2309c6; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;       
+    cursor: pointer;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #3b0c7a;
+  }
+  
