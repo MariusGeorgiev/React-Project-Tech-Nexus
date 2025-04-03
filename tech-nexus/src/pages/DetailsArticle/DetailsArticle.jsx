@@ -31,7 +31,7 @@ const DetailsArticle = () => {
           setArticle(articleData);
           setComments(articleData.comments || []);
           
-          // Fetch creator's username
+         
           if (articleData.userId) {
             const userRef = doc(db, "users", articleData.userId);
             const userSnap = await getDoc(userRef);
