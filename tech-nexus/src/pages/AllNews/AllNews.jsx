@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase"; 
 import { collection, getDocs, query, orderBy } from "firebase/firestore"; 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link  } from "react-router-dom";
 import styles from "./AllNews.module.css"; 
 
 const AllNews = () => {
@@ -55,31 +55,31 @@ const AllNews = () => {
         </div>
 
         <div className={styles.allArticles}>
-          {articles.length > 0 ? (
-            articles.map((article) => (
-              <a
-                key={article.id}
-                href={`/details-article/${article.id}`}
-                className={styles.articleCard}
-              >
-                <div className={styles.imageContainer}>
-                  <img
-                    src={article.imageUrl}
-                    alt={`Image for ${article.title}`}
-                    className={styles.articleImage}
-                  />
-                  <div className={styles.textOverlay}>
-                    <h2>{article.title}</h2>
-                    <p>Category: {article.category}</p>
-                    <p>{article.time} | {article.date}</p>
-                  </div>
-                </div>
-              </a>
-            ))
-          ) : (
-            <p>No news available at the moment. Please check back later.</p>
-          )}
+  {articles.length > 0 ? (
+    articles.map((article) => (
+      <Link
+        key={article.id}
+        to={`/details-article/${article.id}`}
+        className={styles.articleCard}
+      >
+        <div className={styles.imageContainer}>
+          <img
+            src={article.imageUrl}
+            alt={`Image for ${article.title}`}
+            className={styles.articleImage}
+          />
+          <div className={styles.textOverlay}>
+            <h2>{article.title}</h2>
+            <p>Category: {article.category}</p>
+            <p>{article.time} | {article.date}</p>
+          </div>
         </div>
+      </Link>
+    ))
+  ) : (
+    <p>No news available at the moment. Please check back later.</p>
+  )}
+</div>
       </div>
     </div>
   );
