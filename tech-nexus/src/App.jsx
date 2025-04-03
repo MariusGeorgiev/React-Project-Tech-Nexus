@@ -5,18 +5,25 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Register from "./pages/auth/Register/Register";
 import Login from "./pages/auth/Login/Login";
+import AboutUs from "./pages/AboutUs/AboutUs";
+
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        
-      </Routes>
-      <Footer />
+      <div>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<AboutUs />} />
+            
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 };
