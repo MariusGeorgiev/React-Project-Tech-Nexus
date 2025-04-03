@@ -8,6 +8,8 @@ import Login from "./pages/auth/Login/Login";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import AddNew from "./pages/AddNew/AddNew";
 import AllNews from "./pages/AllNews/AllNews";
+import DetailsArticle from "./pages/DetailsArticle/DetailsArticle";
+import EditArticle from "./pages/EditArticle/EditArticle";
 
 
 const App = () => {
@@ -23,6 +25,8 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/add-new" element={<AddNew />} />
             <Route path="/all-news" element={<AllNews />} />
+            <Route path="/details-article/:id" element={<DetailsArticle />} />
+            <Route path="/edit-article/:id" element={<EditArticle />} />
             
           </Routes>
         </main>
