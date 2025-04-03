@@ -7,6 +7,7 @@ import Register from "./pages/auth/Register/Register";
 import Login from "./pages/auth/Login/Login";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import AddNew from "./pages/AddNew/AddNew";
+import AllNews from "./pages/AllNews/AllNews";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/add-new" element={<AddNew />} />
+            <Route path="/all-news" element={<AllNews />} />
             
           </Routes>
         </main>
