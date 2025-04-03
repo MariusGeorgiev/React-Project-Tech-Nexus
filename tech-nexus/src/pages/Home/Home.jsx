@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "../../firebase"; 
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore"; 
 import styles from "./home.module.css";
 
 const Home = () => {
-  
-  // need to fix it after create page 
-  const articles = [
-    { id: 1, title: "Tech News 1", imageUrl: "image1.jpg" },
-    { id: 2, title: "Tech News 2", imageUrl: "image2.jpg" },
-    
-  ];
+  const [articles, setArticles] = useState([]);
+
+ useEffect(() => {
+     const fetchArticles = async () => {
+       try {
+         const articlesRef = collection(db, "articles");
+         const q = query(
+           articlesRef,
+           orderBy("date", "desc"), 
+           orderBy("time", "desc"), 
+           limit(3)
+         );
+         const querySnapshot = await getDocs(q);
+         const articlesList = querySnapshot.docs.map((doc) => ({
+           id: doc.id,
+           ...doc.data(),
+         }));
+         setArticles(articlesList);
+       } catch (error) {
+         console.error("Error fetching articles: ", error);
+       }
+     };
+ 
+     fetchArticles();
+   }, []);
 
   return (
     <div className={styles["home-page"]}>
@@ -17,7 +37,6 @@ const Home = () => {
         <h1>Latest Tech news</h1>
       </div>
 
-     
       <div className={styles["home-page-new-content"]}>
         <h2>Latest News</h2>
 
