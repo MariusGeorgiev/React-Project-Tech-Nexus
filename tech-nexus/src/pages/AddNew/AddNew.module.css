@@ -1,0 +1,14 @@
+
+  .createPageContent {
+    height: calc(200vh - 160px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+/* .test {
+    background-color: yellow;
+    padding: 20px;
+    font-size: 20px;
+  } */
