@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase"; 
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore"; 
 import { useNavigate } from "react-router-dom";
 import styles from "./AllNews.module.css"; 
 
@@ -9,10 +9,17 @@ const AllNews = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     const fetchArticles = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "articles"));
-        const articlesList = querySnapshot.docs.map(doc => ({
+        const articlesRef = collection(db, "articles");
+        const q = query(
+          articlesRef,
+          orderBy("date", "desc"), 
+          orderBy("time", "desc") 
+        );
+        const querySnapshot = await getDocs(q);
+        const articlesList = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
@@ -23,7 +30,7 @@ const AllNews = () => {
     };
 
     fetchArticles();
-  }, []);
+  }, []); 
 
   const navigateToCategory = (category) => {
     navigate(`/${category}-articles`);
