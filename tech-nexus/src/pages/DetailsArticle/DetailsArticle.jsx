@@ -124,13 +124,20 @@ const DetailsArticle = () => {
             {comments.length > 0 ? (
               comments.map((comment, index) => (
                 <div key={index}>
-                  <p><strong>{comment.userName}:</strong> {comment.timestamp}</p>
+                  <p><strong>{comment.userName}:</strong> 
+                  {" "}{comment.timestamp
+            ? new Date(comment.timestamp).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
+            : "Invalid Date"}{" | "}
+          {comment.timestamp
+            ? new Date(comment.timestamp).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
+            : "Invalid Time"}
+        </p>
                   <p>{comment.content}</p>
                 </div>
               ))
             ) : (
               <p>No comments yet!</p>
-            )}
+            )} 
           </div>
         </>
       ) : (
