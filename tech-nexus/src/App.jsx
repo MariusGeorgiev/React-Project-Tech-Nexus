@@ -10,6 +10,7 @@ import AddNew from "./pages/AddNew/AddNew";
 import AllNews from "./pages/AllNews/AllNews";
 import DetailsArticle from "./pages/DetailsArticle/DetailsArticle";
 import EditArticle from "./pages/EditArticle/EditArticle";
+import UsersStats from "./pages/UsersStats/UsersStats";
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/all-news" element={<AllNews />} />
             <Route path="/details-article/:id" element={<DetailsArticle />} />
             <Route path="/edit-article/:id" element={<EditArticle />} />
+            <Route path="/users-stats" element={<UsersStats />} />
             
           </Routes>
         </main>
