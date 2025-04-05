@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../../firebase";
-import { doc, setDoc } from "firebase/firestore";
-import styles from "./Register.module.css"; 
+import { doc, setDoc, Timestamp } from "firebase/firestore";
+import styles from "./Register.module.css";
+
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -45,7 +46,7 @@ const Register = () => {
         username: form.username,
         email: form.email,
         tel: form.tel,
-        createdAt: new Date(),
+        registeredOn: Timestamp.fromDate(new Date()),
       });
 
       navigate("/"); 
