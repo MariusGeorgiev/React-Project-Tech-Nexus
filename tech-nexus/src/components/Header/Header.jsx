@@ -83,7 +83,7 @@ const Header = () => {
             <Link className={styles.navLink} to="/contact">Contact</Link>
           </li>
           <li>
-            <Link className={styles.navLink} to="/users-list">Users Stats</Link>
+            <Link className={styles.navLink} to="/users-stats">Users Stats</Link>
           </li>
         </ul>
       </nav>
