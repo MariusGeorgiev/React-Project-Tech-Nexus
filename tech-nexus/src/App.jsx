@@ -15,6 +15,8 @@ import DetailsArticle from "./pages/DetailsArticle/DetailsArticle";
 import EditArticle from "./pages/EditArticle/EditArticle";
 import UsersStats from "./pages/UsersStats/UsersStats";
 import NotFound404 from "./pages/NotFound404/NotFound404";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Contact from "./pages/Contact/Contact";
 
 
 const App = () => {
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="/details-article/:id" element={<DetailsArticle />} />
             <Route path="/edit-article/:id" element={<EditArticle />} />
             <Route path="/users-stats" element={<UsersStats />} />
+            <Route path="/profile/:userId" element={<ProfilePage />} />
+            <Route path="/contact" element={<Contact />} />
             
             <Route path="*" element={<NotFound404 />} />
           </Routes>
