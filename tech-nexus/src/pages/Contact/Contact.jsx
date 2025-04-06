@@ -10,6 +10,9 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -23,10 +26,7 @@ const Contact = () => {
     e.preventDefault();
 
 
-const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const userId = import.meta.env.VITE_EMAILJS_USER_ID;
-    
+
     const emailParams = {
       from_name: userName,
       from_email: userEmail,
@@ -35,11 +35,11 @@ const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
     emailjs
     .send(
-        
+
         serviceId, 
         templateId,
-      emailParams,
-      userId 
+        emailParams,
+        userId 
     )
     .then(
       (response) => {
@@ -51,7 +51,12 @@ const userId = import.meta.env.VITE_EMAILJS_USER_ID;
       },
       (error) => {
         console.error('FAILED...', error);
-        setErrorMessage('An error occurred while sending your message. Please try again.');
+    
+        if (error?.status === 0 || error?.text === '' || error instanceof TypeError) {
+          setErrorMessage('Email service is currently unavailable. Please try again later.');
+        } else {
+          setErrorMessage('An error occurred while sending your message. Please try again.');
+        }
       }
     );
 };
