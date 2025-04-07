@@ -1,5 +1,5 @@
 .contact-page {
-    height: calc(100vh - 120px);
+    /* height: calc(100vh - 140px); */
     display: flex;
     flex-direction: column;
       text-align: center;
@@ -152,34 +152,33 @@
     border-radius: 8px;
   }
   
-  /* on 110% */
-  @media screen and (max-width: 2000px) { 
+ 
+  /* @media screen and (max-width: 2000px) { 
     .contact-page {
       padding-bottom: 120px; 
     }
   }
   
-  /* on 125% */
+
   @media screen and (max-width: 1800px) { 
     .contact-page {
       padding-bottom: 220px; 
     }
   }
   
-  /* on 150% */
+
   @media screen and (max-width: 1600px) { 
     .contact-page {
       padding-bottom: 400px; 
     }
   }
   
-  /* on 175% */
+  
   @media screen and (max-width: 1400px) { 
   
   }
   
-  
-  /* on 200% */
+
   @media screen and (max-width: 1200px) { 
     .contact-page {
       padding-bottom: 720px; 
@@ -203,7 +202,7 @@
       width: 15%;
     }
   }
-  
+   */
     
   
     
