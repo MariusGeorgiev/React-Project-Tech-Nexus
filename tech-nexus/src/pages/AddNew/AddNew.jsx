@@ -59,7 +59,8 @@ const AddNew = () => {
           const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
 
           try {
-            await addDoc(articlesRef, {
+            // Add the new article to the Firestore collection
+            const docRef = await addDoc(articlesRef, {
               title,
               category,
               summary,
@@ -68,8 +69,11 @@ const AddNew = () => {
               imageUrl: downloadURL,
               userId: currentUserId,
             });
+
             console.log("Article created successfully!");
-            navigate("/"); 
+            
+            // Navigate to the details page of the newly created article
+            navigate(`/details-article/${docRef.id}`); 
           } catch (error) {
             console.error("Error adding document:", error);
             alert("There was an error while uploading the article. Please try again.");
@@ -82,7 +86,6 @@ const AddNew = () => {
   };
 
   return (
-    // need to make styles in later stage
     <div className={styles.createPage}>
       <div className={styles.createPageContent}>
         <h1>Create New Article</h1>

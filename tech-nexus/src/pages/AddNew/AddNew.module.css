@@ -1,14 +1,203 @@
+.loader {
+  height: calc(100vh - 140px);  
+}
 
-  .createPageContent {
-    height: calc(200vh - 160px);
+.createPage {
+  height: calc(100vh - 140px);
+}
+
+.createPageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    max-width: 50%;
+  max-height: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    margin-top: 20px;
+    background-color: #7880b1;
+    border-radius: 8px;
+    box-shadow: 0px 0px 32px 0px #2e5c8e, -14px -14px 20px #a0acc0;
+  }
+
+ h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .category { 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 160px;
+  }
+
+  .image > label{
+  text-align: center;
+  }
+
+  .imagePreview {
+    padding-bottom: 15px;
+    text-align: center;
+    margin-top: 1em;
   }
   
+  .imagePreview img {
+    max-width: 270px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
 
-/* .test {
-    background-color: yellow;
-    padding: 20px;
-    font-size: 20px;
-  } */
+  .imagePreview > p{
+    color: white;
+    padding-bottom: 5px;
+
+  }
+
+  .auth label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .auth input,
+  .auth select,
+  .auth textarea {
+    width: 90%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    
+  }
+  
+  .auth input[type="submit"] {
+    background-color: #007bff;
+    color: #9e4343;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .auth textarea {
+    
+    width: 90%;
+    min-height: 200px;
+    overflow: auto;
+    
+  }
+  
+  .auth .category {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1.2em;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: #db4141;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn:hover {
+    scale: 1.1;
+    background-color: rgb(246, 0, 0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .image > input {
+    background-color: #4fa63a;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 10px;
+    align-items: center;
+    color: white;
+  
+  }
+
+  
+  .image > input:hover {
+    background-color: #207a0c;
+  }
+
+
+/* on 100% */
+@media screen and (max-width: 2400px) {
+  .create-page {
+    padding-bottom: 20px;
+
+  }
+}
+
+/* on 110% */
+@media screen and (max-width: 2000px) {
+  .create-page {
+    padding-bottom: 120px;
+
+  }
+}
+
+/* on 125% */
+@media screen and (max-width: 1800px) { 
+  .create-page {
+    padding-bottom: 220px;
+  }
+}
+
+/* on 150% */
+@media screen and (max-width: 1600px) { 
+  .create-page {
+    padding-bottom: 370px;
+  }
+}
+
+/* on 175% */
+@media screen and (max-width: 1400px) { 
+  .create-page {
+    padding-bottom: 520px;
+  }
+}
+
+/* on 200% */
+@media screen and (max-width: 1200px) { 
+  .create-page {
+    padding-bottom: 570px;
+  }
+}
+
+ /* on 250% */
+@media screen and (max-width: 1000px) {
+  .create-page {
+    padding-bottom: 700px;
+  }
+}
+
+ /* on 300% */
+ @media screen and (max-width: 800px) {
+  .create-page {
+    padding-bottom: 780px;
+  }
+
+}
+
+ /* on 400% */
+ @media screen and (max-width: 600px) {
+  .create-page {
+    padding-bottom: 890px;
+  }
+}
