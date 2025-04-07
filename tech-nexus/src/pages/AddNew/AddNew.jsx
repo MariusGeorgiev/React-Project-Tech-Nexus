@@ -59,7 +59,7 @@ const AddNew = () => {
           const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
 
           try {
-            // Add the new article to the Firestore collection
+            
             const docRef = await addDoc(articlesRef, {
               title,
               category,
@@ -72,7 +72,6 @@ const AddNew = () => {
 
             console.log("Article created successfully!");
             
-            // Navigate to the details page of the newly created article
             navigate(`/details-article/${docRef.id}`); 
           } catch (error) {
             console.error("Error adding document:", error);
