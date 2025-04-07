@@ -1,6 +1,6 @@
 .content-of-users {
     height: calc(100vh - 242px);
-    padding-top: 120px;
+    /* padding-top: 120px; */
   }
   
   .user-stats-container {
