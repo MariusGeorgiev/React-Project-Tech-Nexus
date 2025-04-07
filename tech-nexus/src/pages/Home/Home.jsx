@@ -41,7 +41,7 @@ const Home = () => {
       <div className={styles["home-page-new-content"]}>
         <h2>Latest News</h2>
 
-        <div id="latest-news">
+        <div className={styles["latest-news"]}>
           {articles.length > 0 ? (
             articles.map((article) => (
               <div key={article.id} className={styles.new}>
