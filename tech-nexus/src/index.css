@@ -1,3 +1,29 @@
+html, body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  box-sizing: border-box;
+  /* overflow-x: hidden;  */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+main {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  
+}
+body {
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100vh; */
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(rgba(83, 66, 66, 0.3), rgba(160, 91, 91, 0.5));
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
