@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.containerFooter}>
-        <img src={logo} alt="logo" />
-        <p>© 2024 TechNexus Ltd. All Rights Reserved.</p>
+        <img className={styles["footer-img"]} src={logo} alt="logo" />
+        <p className={styles.paragraph}>© 2025 TechNexus Ltd. All Rights Reserved.</p>
       </div>
     </footer>
   );
