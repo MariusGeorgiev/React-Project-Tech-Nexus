@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../../firebase"; 
-import { collection, getDocs, query, orderBy, limit } from "firebase/firestore"; 
-import { Link } from "react-router-dom"; 
+import { db } from "../../firebase";
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 
 const Home = () => {
@@ -13,8 +13,8 @@ const Home = () => {
         const articlesRef = collection(db, "articles");
         const q = query(
           articlesRef,
-          orderBy("date", "desc"), 
-          orderBy("time", "desc"), 
+          orderBy("date", "desc"),
+          orderBy("time", "desc"),
           limit(3)
         );
         const querySnapshot = await getDocs(q);
@@ -52,7 +52,9 @@ const Home = () => {
                       alt={`Image for ${article.title}`}
                       className={styles["article-image"]}
                     />
-                    <div className={styles["title-overlay"]}>{article.title}</div>
+                    <div className={styles["title-overlay"]}>
+                      {article.title}
+                    </div>
                   </div>
                   <div className={styles["data-buttons"]}>
                     <button>Details</button>
