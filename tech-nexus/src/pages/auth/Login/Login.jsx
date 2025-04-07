@@ -27,12 +27,11 @@ const Login = () => {
     <div className={styles.container}>
       <form className={styles.login} onSubmit={handleLogin}>
         <fieldset>
-          <h2>Login Form</h2>
+          <h2>Login</h2>
 
           <p className={`${styles.field} ${styles["field-icon"]}`}>
             <label htmlFor="email">
-              <span>
-                <i className="fas fa-envelope"></i> Email:
+              <span>Email:
               </span>
             </label>
             <input
@@ -48,8 +47,7 @@ const Login = () => {
 
           <p className={`${styles.field} ${styles["field-icon"]}`}>
             <label htmlFor="password">
-              <span>
-                <i className="fas fa-lock"></i> Password:
+              <span>Password:
               </span>
             </label>
             <input
