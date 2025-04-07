@@ -1,15 +1,15 @@
 .container {
-    height: calc(100vh - 241px);
+    /* height: calc(100vh - 241px); */
     display: flex;
     justify-content: center; 
   }
   
-  .form-container {
+  .formContainer {
     display: block;
     
   }
   
-  .form-container.hidden {
+  .formContainer.hidden {
     display: none;
   }
   
@@ -37,14 +37,21 @@
   .register h2 {
     padding-top: 0;
     border-bottom: none;
-    color: #333;
+    color: white;
+    padding-bottom: 20px;
   }
   
   .register p {
+    color: white;
     padding-top: 1rem;
     margin: 0;
   }
   
+  .register label {
+    color: white;
+    padding-top: 10px;
+  }
+
   .register input {
     flex: 0 1 100%;
     border: 1px solid #ccc;
@@ -54,12 +61,24 @@
     border-bottom-right-radius: 0.3em;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
+
+  .phoneRow {
+    display: flex;
+    width: 64%;
+
+  }
   
   .register input:focus {
     border-left-color: #007bff;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
+
+  .register input,
+  .register textarea {
+    width: 60%;
+  }
+
   
   .register i {
     border: 1px solid #ccc;
@@ -157,7 +176,7 @@
     animation: spin 2s linear infinite;
   }
   
-    /* on 175% */
+  
     @media screen and (max-width: 1400px) { 
       .container {
         padding-bottom: 0px;
@@ -170,7 +189,7 @@
       }
     }
   
-    /* on 200% */
+  
   @media screen and (max-width: 1200px) { 
     .container {
       padding-bottom: 0px;
@@ -183,7 +202,7 @@
     }
   }
   
-   /* on 250% */
+  
    @media screen and (max-width: 1000px) {
   
     .container {
@@ -197,7 +216,7 @@
     }
   }
   
-   /* on 300% */
+ 
     @media screen and (max-width: 800px) { 
       .container {
         padding-bottom: 180px;
@@ -210,7 +229,7 @@
       }
     }
   
-  /* 0n 400% */
+
   @media screen and (max-width: 600px) {
     .container {
       padding-bottom: 320px; 
