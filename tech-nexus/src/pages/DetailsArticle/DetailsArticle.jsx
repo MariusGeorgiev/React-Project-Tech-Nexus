@@ -9,6 +9,7 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
+import { lineBreaks } from "../../utils/utils";
 import styles from "./DetailsArticle.module.css";
 
 const DetailsArticle = () => {
@@ -19,19 +20,18 @@ const DetailsArticle = () => {
   const [isCreator, setIsCreator] = useState(false);
   const [newComment, setNewComment] = useState("");
   const [comments, setComments] = useState([]);
-  
+
   useEffect(() => {
     const fetchArticle = async () => {
       try {
         const articleRef = doc(db, "articles", id);
         const articleSnap = await getDoc(articleRef);
-        
+
         if (articleSnap.exists()) {
           const articleData = articleSnap.data();
           setArticle(articleData);
           setComments(articleData.comments || []);
-          
-         
+
           if (articleData.userId) {
             const userRef = doc(db, "users", articleData.userId);
             const userSnap = await getDoc(userRef);
@@ -56,10 +56,12 @@ const DetailsArticle = () => {
         alert("You must be logged in to comment.");
         return;
       }
-      
+
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
-      const userName = userSnap.exists() ? userSnap.data().username : user.email;
+      const userName = userSnap.exists()
+        ? userSnap.data().username
+        : user.email;
 
       const newCommentData = {
         userName,
@@ -70,7 +72,7 @@ const DetailsArticle = () => {
       const updatedComments = [...comments, newCommentData];
       setComments(updatedComments);
       setNewComment("");
-      
+
       await updateDoc(doc(db, "articles", id), {
         comments: updatedComments,
       });
@@ -91,58 +93,130 @@ const DetailsArticle = () => {
 
   return (
     <div className={styles.articlePage}>
-      {article ? (
-        <>
-          <h1>{article.title}</h1>
-          <p><strong>Created by:</strong> {createdByUsername}</p>
-          <p><strong>Category:</strong> {article.category}</p>
-          <p><strong>Created on:</strong> {article.time} | {article.date}</p>
-          <img src={article.imageUrl} alt="Article" className={styles.articleImage} />
-          <p className={styles.articleText}>{article.summary}</p>
+      <div className={styles["content-area"]}>
+        {article ? (
+          <>
+            <div className={styles["the-new-info-section"]}>
+              <h1>{article.title}</h1>
 
-          {isCreator && (
-            <div>
-              <button onClick={() => navigate(`/edit-article/${id}`)}>Edit</button>
-              <button onClick={deleteArticle}>Delete</button>
-            </div>
-          )}
+              <div className={styles["created-from-on"]}>
+                <p>
+                  <strong>Created by:</strong> {createdByUsername}
+                </p>
+                <p>
+                  <strong>Category:</strong> {article.category}
+                </p>
+                <p>
+                  <strong>Created on:</strong> {article.time} | {article.date}
+                </p>
+              </div>
 
-          <div>
-            <h3>Comments ({comments.length})</h3>
-            {auth.currentUser ? (
-              <>
-                <textarea
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                  placeholder="Add a comment..."
-                ></textarea>
-                <button onClick={addComment} disabled={!newComment.trim()}>Submit</button>
-              </>
-            ) : (
-              <p>You must be logged in to add a comment.</p>
-            )}
-            {comments.length > 0 ? (
-              comments.map((comment, index) => (
-                <div key={index}>
-                  <p><strong>{comment.userName}:</strong> 
-                  {" "}{comment.timestamp
-            ? new Date(comment.timestamp).toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })
-            : "Invalid Date"}{" | "}
-          {comment.timestamp
-            ? new Date(comment.timestamp).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
-            : "Invalid Time"}
-        </p>
-                  <p>{comment.content}</p>
+              <div className={styles["image-and-content"]}>
+                <img
+                  src={article.imageUrl}
+                  alt="Article"
+                  className={styles.articleImage}
+                />
+
+                <div className={styles["article-content"]}>
+                  <p>
+                    <strong>Post Content:</strong>
+                  </p>
+                  <p className={styles["article-text"]}>
+                    {lineBreaks(article.summary)}
+                  </p>
                 </div>
-              ))
-            ) : (
-              <p>No comments yet!</p>
-            )} 
-          </div>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+              </div>
+
+              {isCreator && (
+                <div className={styles["edit-del-buttons"]}>
+                  <button
+                    className={styles["edit"]}
+                    onClick={() => navigate(`/edit-article/${id}`)}
+                  >
+                    Edit
+                  </button>
+                  <button className={styles["delete"]} onClick={deleteArticle}>
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className={styles["comment-section"]}>
+              <h3>Comments ({comments.length})</h3>
+
+              <div className={styles["comment-submiting-section"]}>
+                {auth.currentUser ? (
+                  <>
+                    <textarea
+                      value={newComment}
+                      onChange={(e) => setNewComment(e.target.value)}
+                      placeholder="Add a comment..."
+                    ></textarea>
+                    <button
+                      className={styles["submit-button"]}
+                      onClick={addComment}
+                      disabled={!newComment.trim()}
+                    >
+                      Submit
+                    </button>
+                  </>
+                ) : (
+                  <p className={styles["must-logged"]}>
+                    You must be logged in to add a comment.
+                  </p>
+                )}
+
+                <div className={styles["all-comments"]}>
+                  {comments.length > 0 ? (
+                    comments.map((comment, index) => (
+                      <div>
+                        <div
+                          className={styles["all-comments-inner"]}
+                          key={index}
+                        >
+                          <p>
+                            <strong>{comment.userName}:</strong>{" "}
+                            {comment.timestamp
+                              ? new Date(comment.timestamp).toLocaleTimeString(
+                                  "en-GB",
+                                  {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    second: "2-digit",
+                                  }
+                                )
+                              : "Invalid Time"}
+                            {" | "}
+                            {comment.timestamp
+                              ? new Date(comment.timestamp).toLocaleDateString(
+                                  "en-GB",
+                                  {
+                                    day: "2-digit",
+                                    month: "2-digit",
+                                    year: "numeric",
+                                  }
+                                )
+                              : "Invalid Date"}
+                          </p>
+                          <p className={styles["comment-content"]}>
+                            {comment.content}
+                          </p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className={styles["noComments"]}>No comments yet!</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };
