@@ -1,14 +1,14 @@
 .not-found {
-    height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: calc(100vh - 320px);
+    display: grid;
+    place-items: center;
+    /* height: 100vh; */
 }
 
-h2 {
+.not-found h2 {
  font-size: 5em;
 }
+
 .not-found > p{
     color: rgb(135, 141, 69);
     font-size: 5em;

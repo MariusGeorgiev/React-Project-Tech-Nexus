@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import styles from "./NotFound404.module.css"; 
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./NotFound404.module.css";
 
 const NotFound404 = () => {
   return (
