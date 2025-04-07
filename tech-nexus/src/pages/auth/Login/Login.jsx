@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import styles from "./Login.module.css";
@@ -16,7 +16,7 @@ const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      
+
       navigate("/");
     } catch (err) {
       setError(err.message);
@@ -31,8 +31,7 @@ const Login = () => {
 
           <p className={`${styles.field} ${styles["field-icon"]}`}>
             <label htmlFor="email">
-              <span>Email:
-              </span>
+              <span className={styles.span}>Email:</span>
             </label>
             <input
               type="email"
@@ -47,8 +46,7 @@ const Login = () => {
 
           <p className={`${styles.field} ${styles["field-icon"]}`}>
             <label htmlFor="password">
-              <span>Password:
-              </span>
+              <span className={styles.span}>Password:</span>
             </label>
             <input
               type="password"

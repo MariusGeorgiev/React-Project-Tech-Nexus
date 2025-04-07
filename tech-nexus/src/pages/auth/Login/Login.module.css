@@ -34,7 +34,7 @@
       margin: 0;
     }
     
-    span {
+    .span {
       color: white;
       padding: 0;
       margin: 0;
@@ -129,8 +129,11 @@
     .input-error {
       border-left-color: #dc3545;
     }
+
+    .text-center {
+      text-align: center;
+    }
     
-    /* on 175% */
     @media screen and (max-width: 1400px) { 
       .container {
         padding-bottom: 00px;
@@ -144,7 +147,7 @@
       }
     }
   
-    /* on 200% */
+ 
   @media screen and (max-width: 1200px) { 
     .container {
       padding-bottom: 0px;
@@ -160,7 +163,7 @@
     
   }
   
-   /* on 250% */
+   
    @media screen and (max-width: 1000px) {
   
     .container {
@@ -175,7 +178,7 @@
     }
   }
   
-   /* on 300% */
+   
     @media screen and (max-width: 800px) { 
       .container {
         padding-bottom: 20px;
@@ -190,8 +193,7 @@
     }
   
      
-    /* on 400% */
-    @media screen and (max-width: 600px) {
+    /* @media screen and (max-width: 600px) {
       .container {
   
         padding-bottom: 160px;
@@ -208,4 +210,4 @@
       .login {
         padding-top: 0;
       }
-    }
+    } */
