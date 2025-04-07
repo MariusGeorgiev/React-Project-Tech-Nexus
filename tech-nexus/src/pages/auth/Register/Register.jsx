@@ -65,7 +65,7 @@ const Register = () => {
       <div className={styles.formContainer}>
         <form className={styles.register} onSubmit={handleSubmit}>
           <fieldset>
-            <h2>Registration Form</h2>
+            <h2>Registration</h2>
 
             <label htmlFor="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Johny" value={form.username} onChange={handleChange} required />

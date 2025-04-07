@@ -1,5 +1,5 @@
 .container {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 241px);
     display: flex;
     justify-content: center; 
   }
@@ -24,6 +24,10 @@
   }
   
   form.register fieldset {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
       border-radius: 2em;
       padding: 1.5em; 
       background-color: brown;
