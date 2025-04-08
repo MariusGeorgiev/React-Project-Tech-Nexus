@@ -13,7 +13,7 @@ import {
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth } from "../../firebase";
-import "./ProfilePage.module.css";
+import styles from "./ProfilePage.module.css";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState({});
@@ -171,133 +171,199 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="profile-page">
-      <div className="profile-content">
-        <h1>Profile</h1>
-        <form onSubmit={updateUserData}>
-          <div className="profile-info">
-            <div className="profile-picture">
-              <img
-                src={imagePreview || "https://via.placeholder.com/200x200.png"}
-                alt="Profile"
-                className="profile-img"
-              />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileSelect}
-                style={{ display: "none" }}
-                id="file-upload"
-              />
-              <label htmlFor="file-upload" className="file-upload-label">
-                Change Profile Picture
-              </label>
+    <div className={styles["profile-page"]}>
+      <h1>Profile</h1>
+
+      <div className={styles["p-info-and-table"]}>
+        <div className={styles["profile-info"]}>
+          <form onSubmit={updateUserData}>
+            <div className={styles["user-details"]}>
+              <div className={styles["profile-picture"]}>
+                <img
+                  src={
+                    imagePreview ||
+                    "https://via.placeholder.com/200x200.png?text=?"
+                  }
+                  alt="Profile Picture"
+                  className={styles["profile-img"]}
+                />
+                <p>
+                  <label
+                    htmlFor="fileUpload"
+                    className={styles["custom-file-upload"]}
+                  >
+                    Change Profile Picture
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileSelect}
+                    style={{ display: "none" }}
+                    id="fileUpload"
+                  />
+                </p>
+              </div>
+
+              <div className={styles["profile-data"]}>
+                <p>
+                  <strong>Username:</strong>
+                  <input
+                    className={styles["data"]}
+                    type="text"
+                    value={newUsername}
+                    onChange={(e) => setNewUsername(e.target.value)}
+                    required
+                  />
+                </p>
+
+                <p>
+                  <strong>Email:</strong>
+                  <span className={styles["data"]}>
+                    {userData.email || "N/A"}
+                  </span>
+                </p>
+
+                <p>
+                  <strong>Phone:</strong>
+                  <span>
+                    <select
+                      className={styles["tel"]}
+                      value={newCountryCode}
+                      onChange={(e) => setNewCountryCode(e.target.value)}
+                      required
+                    >
+                      {countryCodes.map((country) => (
+                        <option
+                          className={styles["data"]}
+                          key={country.code}
+                          value={country.code}
+                        >
+                          {country.label}
+                        </option>
+                      ))}
+                    </select>
+
+                    <input
+                      className={styles["data"]}
+                      type="text"
+                      value={newTel}
+                      onChange={(e) => setNewTel(e.target.value)}
+                      required
+                    />
+                  </span>
+                </p>
+
+                <p>
+                  <strong>Country:</strong>
+                  <input
+                    className={styles["data"]}
+                    type="text"
+                    value={newCountry}
+                    onChange={(e) => setNewCountry(e.target.value)}
+                    required
+                  />
+                </p>
+
+                <p>
+                  <strong>City:</strong>
+                  <input
+                    className={styles["data"]}
+                    type="text"
+                    value={newCity}
+                    onChange={(e) => setNewCity(e.target.value)}
+                  />
+                </p>
+
+                <p>
+                  <strong>Age:</strong>
+                  <input
+                    className={styles["data"]}
+                    type="text"
+                    value={newAge}
+                    onChange={(e) => setNewAge(e.target.value)}
+                    required
+                  />
+                </p>
+
+                <p>
+                  <strong>Gender:</strong>
+                  <select
+                    className={styles["data"]}
+                    value={newGender}
+                    onChange={(e) => setNewGender(e.target.value)}
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </p>
+
+                <p>
+                  <label>Registered On:</label>
+                  <span className={styles["data"]}>{registeredOn}</span>
+                </p>
+              </div>
             </div>
+            <button className={styles["update"]} type="submit">
+              Update Profile
+            </button>
+          </form>
+        </div>
 
-            <div className="profile-data">
-              <label>Username:</label>
-              <input
-                type="text"
-                value={newUsername}
-                onChange={(e) => setNewUsername(e.target.value)}
-                required
-              />
-
-              <label>Email:</label>
-              <p>{userData.email || "N/A"}</p>
-
-              <label>Country Code:</label>
-              <select
-                value={newCountryCode}
-                onChange={(e) => setNewCountryCode(e.target.value)}
-                required
-              >
-                {countryCodes.map((country) => (
-                  <option key={country.code} value={country.code}>
-                    {country.label}
-                  </option>
-                ))}
-              </select>
-
-              <label>Phone:</label>
-              <input
-                type="text"
-                value={newTel}
-                onChange={(e) => setNewTel(e.target.value)}
-                required
-              />
-
-              <label>Country Name:</label>
-              <input
-                type="text"
-                value={newCountry}
-                onChange={(e) => setNewCountry(e.target.value)}
-                required
-              />
-
-              <label>City:</label>
-              <input
-                type="text"
-                value={newCity}
-                onChange={(e) => setNewCity(e.target.value)}
-              />
-
-              <label>Age:</label>
-              <input
-                type="text"
-                value={newAge}
-                onChange={(e) => setNewAge(e.target.value)}
-                required
-              />
-
-              <label>Gender:</label>
-              <select
-                value={newGender}
-                onChange={(e) => setNewGender(e.target.value)}
-              >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-
-              <label>Registered On:</label>
-              <p>{registeredOn}</p>
-            </div>
-          </div>
-          <button type="submit">Update Profile</button>
-        </form>
-
-        <div className="user-articles">
-          <h3>Your Articles ({userArticles.length})</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>№</th>
-                <th>Category</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Comments</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userArticles.map((article, index) => (
-                <tr key={article.id}>
-                  <td>{index + 1}</td>
-                  <td>{article.category}</td>
-                  <td>
-                    <button onClick={() => goToArticleDetails(article.id)}>
-                      {article.title}
-                    </button>
-                  </td>
-                  <td>
-                    {article.date}
-                    {" | "}
-                    {article.time}
-                  </td>
-                  <td>{article.comments?.length || 0}</td>
+        <div className={styles["mine-articles"]}>
+          <div className={styles["table-container"]}>
+            <table>
+              <thead>
+                <tr>
+                  <th className={styles["master-row"]} colspan="5">
+                    <h3>
+                      Your Articles <span>({userArticles.length})</span>
+                    </h3>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+
+                <tr>
+                  <th>№</th>
+                  <th>Category</th>
+                  <th>Title</th>
+                  <th>Date of Creation</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {userArticles.map((article, index) => (
+                  <tr key={article.id}>
+                    <td className={styles["small-column-1"]}>{index + 1}</td>
+                    <td className={styles["small-column2"]}>
+                      {article.category}
+                    </td>
+                    <td className={styles["large-column"]}>
+                      <a
+                        className={styles["aTitle"]}
+                        onClick={() => goToArticleDetails(article.id)}
+                      >
+                        {article.title}
+                      </a>
+                    </td>
+                    <td className={styles["small-column-3"]}>
+                      {article.date}
+                      {" | "}
+                      {article.time}
+                    </td>
+                    <td className={styles["small-column-4"]}>
+                      {article.comments?.length || 0}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {userArticles.length === 0 && (
+            <div className={styles["no-news"]}>
+              <p>You have not created any articles yet.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
