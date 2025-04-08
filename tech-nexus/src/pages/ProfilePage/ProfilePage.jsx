@@ -14,6 +14,7 @@ import {
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth } from "../../firebase";
 import styles from "./ProfilePage.module.css";
+import defaultAvatar from "../../assets/default-avatar.jpg";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState({});
@@ -180,10 +181,7 @@ const ProfilePage = () => {
             <div className={styles["user-details"]}>
               <div className={styles["profile-picture"]}>
                 <img
-                  src={
-                    imagePreview ||
-                    "https://via.placeholder.com/200x200.png?text=?"
-                  }
+                  src={imagePreview || defaultAvatar}
                   alt="Profile Picture"
                   className={styles["profile-img"]}
                 />
