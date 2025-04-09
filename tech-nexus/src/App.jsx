@@ -17,6 +17,7 @@ import UsersStats from "./pages/UsersStats/UsersStats";
 import NotFound404 from "./pages/NotFound404/NotFound404";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Contact from "./pages/Contact/Contact";
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 const App = () => {
@@ -30,13 +31,13 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/add-new" element={<AddNew />} />
+            <Route path="/add-new" element={<PrivateRoute element={<AddNew />} />} />
             <Route path="/all-news" element={<AllNews />} />
             <Route path="/hardware-articles" element={<HardwareNews />} />
             <Route path="/software-articles" element={<SoftwareNews />} />
             <Route path="/science-articles" element={<ScienceNews />} />
             <Route path="/details-article/:id" element={<DetailsArticle />} />
-            <Route path="/edit-article/:id" element={<EditArticle />} />
+            <Route path="/edit-article/:id" element={<PrivateRoute element={<EditArticle />} />} />
             <Route path="/users-stats" element={<UsersStats />} />
             <Route path="/profile/:userId" element={<ProfilePage />} />
             <Route path="/contact" element={<Contact />} />
