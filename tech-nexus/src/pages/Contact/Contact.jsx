@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase";
 import emailjs from "emailjs-com";
 import styles from "./Contact.module.css";
+import techNexusImage from "../../assets/tech-nexus.PNG";
 
 const Contact = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -94,7 +95,7 @@ const Contact = () => {
         <div className={styles["contact-container-center"]}>
           <h1>Contacts</h1>
           <div className={styles["profile-picture"]}>
-            <img src="../../src/assets/tech-nexus.PNG" alt="pic" />
+            <img src={techNexusImage} alt="pic" />
           </div>
           <p>
             <strong>Address:</strong>
