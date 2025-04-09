@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../../firebase";
-import { doc, setDoc, Timestamp } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  setDoc,
+  Timestamp,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import styles from "./Register.module.css";
 
 const Register = () => {
@@ -28,6 +36,16 @@ const Register = () => {
     e.preventDefault();
     setError(null);
 
+    if (/\s/.test(form.username)) {
+      setError("Username cannot contain spaces.");
+      return;
+    }
+
+    if (/\s/.test(form.password)) {
+      setError("Password cannot contain spaces.");
+      return;
+    }
+
     if (form.password !== form.rePassword) {
       setError("Passwords do not match!");
       return;
@@ -38,7 +56,31 @@ const Register = () => {
       return;
     }
 
+    const usersCollection = collection(db, "users");
+
+    const phoneQuery = query(
+      usersCollection,
+      where("countryCode", "==", form.countryCode),
+      where("tel", "==", form.tel)
+    );
+
+    const usernameQuery = query(
+      usersCollection,
+      where("username", "==", form.username)
+    );
     try {
+      const phoneQuerySnapshot = await getDocs(phoneQuery);
+      if (!phoneQuerySnapshot.empty) {
+        setError("Phone number is already used by another account.");
+        return;
+      }
+
+      const usernameQuerySnapshot = await getDocs(usernameQuery);
+      if (!usernameQuerySnapshot.empty) {
+        setError("Username is already taken.");
+        return;
+      }
+
       setLoading(true);
       const userCredential = await createUserWithEmailAndPassword(
         auth,
