@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import styles from "./home.module.css";
+import styles from "./Home.module.css";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
