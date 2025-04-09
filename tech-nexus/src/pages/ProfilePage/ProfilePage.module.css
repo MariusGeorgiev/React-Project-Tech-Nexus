@@ -1,10 +1,5 @@
-/* .loader {
-  height: calc(100vh - 120px);
-} */
-
 .profile-page {
   text-align: center;
-  /* height: calc(100vh - 120px); */
 }
 
 .profile-page h1 {
@@ -73,7 +68,6 @@
 .tel {
   border-radius: 7px;
   font-size: 1em;
-  /* align-self: center; */
 }
 
 .country-code-and-phone-number {
@@ -81,12 +75,6 @@
   flex-direction: row;
   gap: 5px;
   justify-content: space-between;
-}
-
-.profile-data strong,
-.profile-data input,
-.profile-data p {
-  /* align-self: center; */
 }
 
 .update {
@@ -207,14 +195,12 @@ td {
   font-size: 3em;
 }
 
-/* on 125% */
 @media screen and (max-width: 1800px) {
   .profile-page {
     padding-bottom: 100px;
   }
 }
 
-/* on 150% */
 @media screen and (max-width: 1600px) {
   .profile-page {
     padding-bottom: 300px;
@@ -225,7 +211,6 @@ td {
   }
 }
 
-/* on 175% */
 @media screen and (max-width: 1400px) {
   .profile-page {
     padding-bottom: 1100px;
