@@ -1,5 +1,4 @@
 .container {
-  /* height: calc(100vh - 241px); */
   display: flex;
   justify-content: center;
 }
