@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { storage, db, auth } from "../../firebase"; 
+import { storage, db, auth } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import styles from "./AddNew.module.css";
-import { onAuthStateChanged } from "firebase/auth"; 
+import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const AddNew = () => {
@@ -12,8 +12,8 @@ const AddNew = () => {
   const [summary, setSummary] = useState("");
   const [image, setImage] = useState(null);
   const [selectedImageUrl, setSelectedImageUrl] = useState(null);
-  const [currentUserId, setCurrentUserId] = useState(null); 
-  const navigate = useNavigate(); 
+  const [currentUserId, setCurrentUserId] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -55,11 +55,17 @@ const AddNew = () => {
           const articlesRef = collection(db, "articles");
 
           const now = new Date();
-          const currentDate = `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`;
-          const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
+          const currentDate = `${now.getDate()}.${
+            now.getMonth() + 1
+          }.${now.getFullYear()}`;
+          const currentTime = `${String(now.getHours()).padStart(
+            2,
+            "0"
+          )}:${String(now.getMinutes()).padStart(2, "0")}:${String(
+            now.getSeconds()
+          ).padStart(2, "0")}`;
 
           try {
-            
             const docRef = await addDoc(articlesRef, {
               title,
               category,
@@ -71,11 +77,13 @@ const AddNew = () => {
             });
 
             console.log("Article created successfully!");
-            
-            navigate(`/details-article/${docRef.id}`); 
+
+            navigate(`/details-article/${docRef.id}`);
           } catch (error) {
             console.error("Error adding document:", error);
-            alert("There was an error while uploading the article. Please try again.");
+            alert(
+              "There was an error while uploading the article. Please try again."
+            );
           }
         }
       );
@@ -90,8 +98,11 @@ const AddNew = () => {
         <h1>Create New Article</h1>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="title" className={styles.label}>Title:</label>
+            <label htmlFor="title" className={styles.label}>
+              Title
+            </label>
             <input
+              className={styles.formGroupInner}
               type="text"
               id="title"
               value={title}
@@ -99,12 +110,16 @@ const AddNew = () => {
               placeholder="Enter article title"
               required
               maxLength="200"
+              style={{ width: "100ch" }}
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="category" className={styles.label}>Category:</label>
+            <label htmlFor="category" className={styles.label}>
+              Category
+            </label>
             <select
+              className={styles.formGroupInner}
               id="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -118,25 +133,32 @@ const AddNew = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="image" className={styles.label}>Select an Image:</label>
+            <label htmlFor="image" className={styles.label}>
+              Image
+            </label>
+
+            {selectedImageUrl && (
+              <div className={styles.imagePreview}>
+                <img src={selectedImageUrl} alt="Selected" />
+              </div>
+            )}
+            <label htmlFor="image" className={styles.customFileButton}>
+              Select an Image
+            </label>
             <input
               type="file"
               id="image"
               accept="image/*"
               onChange={handleImageChange}
               required
+              style={{ display: "none" }}
             />
           </div>
 
-          {selectedImageUrl && (
-            <div className={styles.imagePreview}>
-              <p>Image Preview:</p>
-              <img src={selectedImageUrl} alt="Selected" />
-            </div>
-          )}
-
           <div className={styles.formGroup}>
-            <label htmlFor="summary" className={styles.label}>Post Content:</label>
+            <label htmlFor="summary" className={styles.label}>
+              Post Content
+            </label>
             <textarea
               id="summary"
               value={summary}
