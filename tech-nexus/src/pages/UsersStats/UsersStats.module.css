@@ -1,77 +1,91 @@
 .content-of-users {
-    /* height: calc(100vh - 156px); */
-    /* padding-top: 120px; */
-    /* padding-bottom: 10px; */
-  }
-  
-  .user-stats-container {
-    color: rgb(77, 62, 62);
-    margin: 20px auto;
-    min-width: 1100px;
-    max-width: 1100px;
-    max-height: 640px; 
-      overflow-y: auto; 
-      position: relative; 
-  }
-  
-  .content-of-users h1 {
-    padding-top: 30px;
-    font-size: 2.5rem;
-      text-align: center;
-      color: black;
-  }
-  
-  .user-stats-container table {
-    min-width: 1080px;
-      max-width: 1080px;
-      table-layout: auto;
-    font-size: 1.5rem;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-  
-    .user-stats-container table th {
-      position: sticky;
-    top: 0; 
-    z-index: 10;
-    }
-    
-    .user-stats-container th,
-    .user-stats-container td {
-      border: 1px solid #550909;
-      padding: 8px;
-      text-align: center;
-    }
+  /* height: calc(100vh - 156px); */
+  /* padding-top: 120px; */
+  /* padding-bottom: 10px; */
+}
 
-  
-    
-    .user-stats-container th {
-      background-color: #f4f4f4;
-    }
-  
-    .date-label {
-      color: #007bff;
-    }
-    
-    .time-label {
-      color: #28a745; 
-    }
-    
-    .year-label {
-      color: #dc3545;  
-    }
-  
-    .loader {
-      /* height: calc(100vh - 320px);    */
-    }
-  
-    .no-users {
-      text-align: center;
-      font-size: 5em;
-    }
-  
-  
-     
-  
-  
-   
+.user-stats-container {
+  color: rgb(77, 62, 62);
+  margin: 20px auto;
+  min-width: 1100px;
+  max-width: 1100px;
+  max-height: 640px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.content-of-users h1 {
+  padding-top: 30px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: black;
+}
+
+.user-stats-container table {
+  min-width: 1080px;
+  max-width: 1080px;
+  table-layout: auto;
+  font-size: 1.5rem;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-stats-container table th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.user-stats-container th,
+.user-stats-container td {
+  border: 1px solid #550909;
+  padding: 8px;
+  text-align: center;
+}
+
+.user-stats-container th {
+  background-color: #f4f4f4;
+}
+
+.date-label {
+  color: #007bff;
+}
+
+.time-label {
+  color: #28a745;
+}
+
+.year-label {
+  color: #dc3545;
+}
+
+.no-users {
+  text-align: center;
+  font-size: 5em;
+}
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.spinner {
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.8s linear infinite;
+  margin-top: 2rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

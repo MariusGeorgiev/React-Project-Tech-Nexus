@@ -61,62 +61,72 @@ const UsersStats = () => {
       <div className={styles["content-of-users"]}>
         <h1>Registered Users and Article Statistics</h1>
 
-        <div className={styles["user-stats-container"]}>
-          <table>
-            <thead>
-              <tr>
-                <th>№</th>
-                <th>Users</th>
-                <th>From:</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Registered On</th>
-                <th>Articles Created</th>
-              </tr>
-            </thead>
-            <tbody>
-              {usersWithStats.map((user, i) => (
-                <tr key={user.id}>
-                  <td>{i + 1}</td>
-                  <td>{user.username}</td>
-                  <td>
-                    {user.city} <br /> {user.country}
-                  </td>
-                  <td>{user.age}</td>
-                  <td>{user.gender}</td>
-                  <td>
-                    <span className={styles["date-label"]}>Date:</span>{" "}
-                    {user.registeredOn instanceof Timestamp
-                      ? user.registeredOn.toDate().toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "long",
-                        })
-                      : new Date(user.registeredOn).toLocaleDateString(
-                          "en-GB",
-                          {
-                            day: "2-digit",
-                            month: "long",
-                          }
-                        )}
-                    <span className={styles["time-label"]}>{" Time: "}</span>
-                    {user.registeredOn instanceof Timestamp
-                      ? user.registeredOn.toDate().toLocaleTimeString("en-GB")
-                      : new Date(user.registeredOn).toLocaleTimeString("en-GB")}
-                    <span className={styles["year-label"]}>{" Year: "}</span>
-                    {user.registeredOn instanceof Timestamp
-                      ? user.registeredOn.toDate().getFullYear()
-                      : new Date(user.registeredOn).getFullYear()}
-                  </td>
-                  <td>{user.articleCount}</td>
+        {loading ? (
+          <div className={styles.loaderWrapper}>
+            <div className={styles.spinner}></div>
+          </div>
+        ) : (
+          <div className={styles["user-stats-container"]}>
+            <table>
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Users</th>
+                  <th>From</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Registered On</th>
+                  <th>Articles Created</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {usersWithStats.map((user, i) => (
+                  <tr key={user.id}>
+                    <td>{i + 1}</td>
+                    <td>{user.username}</td>
+                    <td>
+                      {user.city} <br /> {user.country}
+                    </td>
+                    <td>{user.age}</td>
+                    <td>{user.gender}</td>
+                    <td>
+                      <span className={styles["date-label"]}>Date:</span>{" "}
+                      {user.registeredOn instanceof Timestamp
+                        ? user.registeredOn
+                            .toDate()
+                            .toLocaleDateString("en-GB", {
+                              day: "2-digit",
+                              month: "long",
+                            })
+                        : new Date(user.registeredOn).toLocaleDateString(
+                            "en-GB",
+                            {
+                              day: "2-digit",
+                              month: "long",
+                            }
+                          )}
+                      <span className={styles["time-label"]}>{" Time: "}</span>
+                      {user.registeredOn instanceof Timestamp
+                        ? user.registeredOn.toDate().toLocaleTimeString("en-GB")
+                        : new Date(user.registeredOn).toLocaleTimeString(
+                            "en-GB"
+                          )}
+                      <span className={styles["year-label"]}>{" Year: "}</span>
+                      {user.registeredOn instanceof Timestamp
+                        ? user.registeredOn.toDate().getFullYear()
+                        : new Date(user.registeredOn).getFullYear()}
+                    </td>
+                    <td>{user.articleCount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-          {usersWithStats.length === 0 && (
-            <p className={styles["no-users"]}>No Users registered yet</p>
-          )}
-        </div>
+            {usersWithStats.length === 0 && (
+              <p className={styles["no-users"]}>No Users registered yet</p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
