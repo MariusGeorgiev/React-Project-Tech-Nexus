@@ -76,7 +76,7 @@ const Contact = () => {
           <p>
             <strong>Email: </strong>{" "}
             <a href="mailto:alphacentauri6677@gmail.com">
-              <i className={styles["fas fa-envelope"]}></i>{" "}
+              <i className={"fas fa-envelope"}></i>{" "}
               alphacentauri6677@gmail.com
             </a>
           </p>
@@ -87,7 +87,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={styles["fab fa-github"]}></i> MariusGeorgiev
+              <i className={"fab fa-github"}></i> MariusGeorgiev
             </a>
           </p>
         </div>
@@ -104,7 +104,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={styles["fas fa-map-marker-alt"]}></i> zh.k. Lyulin
+              <i className={"fas fa-map-marker-alt"}></i> zh.k. Lyulin
               1, ul. "Gen. Vasil Kutinchev, 1343", Sofia, Bulgaria
             </a>
           </p>
@@ -114,7 +114,7 @@ const Contact = () => {
           <p>
             <strong>Phone: </strong>{" "}
             <a href="tel:+359898245509">
-              <i className={styles["fas fa-phone-alt"]}></i> +359 898 245 509
+              <i className={"fas fa-phone-alt"}></i> +359 898 245 509
             </a>
           </p>
           <p>
@@ -124,7 +124,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={styles["fab fa-linkedin"]}></i> Marius-Georgiev
+              <i className={"fab fa-linkedin"}></i> Marius-Georgiev
             </a>
           </p>
         </div>

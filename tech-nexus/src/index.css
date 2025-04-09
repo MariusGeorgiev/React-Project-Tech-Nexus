@@ -1,3 +1,4 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 #root {
   height: 100%;
 }
@@ -8,13 +9,12 @@
   flex-direction: column;
 }
 
-html, body {
-  /* margin: 0;
-  padding: 0; */
+html,
+body {
   font-family: Arial, sans-serif;
   font-size: 12px;
   box-sizing: border-box;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   height: 100%;
 }
 
@@ -22,19 +22,13 @@ html, body {
   margin: 0;
   padding: 0;
   line-height: 1;
-  /* outline: 1px solid red;  */
 }
 
 main {
   padding-top: 70px;
   flex: 1;
-  
-  
 }
 body {
-  /* display: flex;
-  flex-direction: column;
-  min-height: 100vh; */
   font-family: "Poppins", sans-serif;
   background: linear-gradient(rgba(83, 66, 66, 0.3), rgba(160, 91, 91, 0.5));
 }

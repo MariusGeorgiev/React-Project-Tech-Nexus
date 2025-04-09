@@ -8,4 +8,9 @@ export default defineConfig({
     port: 5173,
   },
   assetsInclude: ['**/*.PNG'],
+  resolve: {
+    alias: {
+      '@fortawesome/fontawesome-free': '/node_modules/@fortawesome/fontawesome-free'
+    }
+  },
 })
