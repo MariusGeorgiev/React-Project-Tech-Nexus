@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth } from "../../firebase";
+import { updateProfile } from "firebase/auth";
 import styles from "./ProfilePage.module.css";
 import defaultAvatar from "../../assets/default-avatar.jpg";
 
@@ -143,9 +144,14 @@ const ProfilePage = () => {
           });
         }
 
-        fetchUserData(userId);
+        await updateProfile(auth.currentUser, {
+          displayName: newUsername,
+        });
+
+        alert("Profile successfully updated!");
       } catch (error) {
         console.error("Error updating user data: ", error);
+        alert("Failed to update profile. Please try again.");
       }
     }
   };
@@ -208,6 +214,9 @@ const ProfilePage = () => {
                   <input
                     className={styles["data"]}
                     type="text"
+                    minlength="3"
+                    maxlength="25"
+                    style={{ width: "20ch" }}
                     value={newUsername}
                     onChange={(e) => setNewUsername(e.target.value)}
                     required
@@ -223,7 +232,7 @@ const ProfilePage = () => {
 
                 <p>
                   <strong>Phone:</strong>
-                  <span>
+                  <span className={styles["country-code-and-phone-number"]}>
                     <select
                       className={styles["tel"]}
                       value={newCountryCode}
@@ -244,9 +253,12 @@ const ProfilePage = () => {
                     <input
                       className={styles["data"]}
                       type="text"
+                      pattern="\d{9}"
+                      title="Enter exactly 9 digits"
+                      required
                       value={newTel}
                       onChange={(e) => setNewTel(e.target.value)}
-                      required
+                      style={{ width: "20ch" }}
                     />
                   </span>
                 </p>
@@ -256,9 +268,11 @@ const ProfilePage = () => {
                   <input
                     className={styles["data"]}
                     type="text"
+                    minlength="3"
+                    maxlength="25"
                     value={newCountry}
                     onChange={(e) => setNewCountry(e.target.value)}
-                    required
+                    style={{ width: "20ch" }}
                   />
                 </p>
 
@@ -267,8 +281,11 @@ const ProfilePage = () => {
                   <input
                     className={styles["data"]}
                     type="text"
+                    minlength="3"
+                    maxlength="25"
                     value={newCity}
                     onChange={(e) => setNewCity(e.target.value)}
+                    style={{ width: "20ch" }}
                   />
                 </p>
 
@@ -276,10 +293,13 @@ const ProfilePage = () => {
                   <strong>Age:</strong>
                   <input
                     className={styles["data"]}
-                    type="text"
+                    type="number"
+                    min="0"
+                    max="150"
+                    step="1"
                     value={newAge}
                     onChange={(e) => setNewAge(e.target.value)}
-                    required
+                    style={{ width: "74px" }}
                   />
                 </p>
 
@@ -290,6 +310,9 @@ const ProfilePage = () => {
                     value={newGender}
                     onChange={(e) => setNewGender(e.target.value)}
                   >
+                    <option value="" disabled>
+                      Select
+                    </option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
