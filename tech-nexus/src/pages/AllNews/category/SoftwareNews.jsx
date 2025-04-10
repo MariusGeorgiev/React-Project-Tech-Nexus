@@ -68,9 +68,7 @@ const SoftwareNews = () => {
                   />
                   <div className={styles.textOverlay}>
                     <h2 className={styles.header2}>{article.title}</h2>
-                    <p className={styles.paragraph}>
-                      Category: {article.category}
-                    </p>
+                    
                     <p className={styles.paragraph}>
                       {" "}
                       {article.time} | {article.date}
