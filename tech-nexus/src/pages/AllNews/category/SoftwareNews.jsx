@@ -15,7 +15,7 @@ const SoftwareNews = () => {
         const q = query(
           articlesRef,
           where("category", "==", "Software"),
-          orderBy("date", "desc"),
+          orderBy("date", "asc"),
           orderBy("time", "desc")
         );
         const querySnapshot = await getDocs(q);

@@ -14,7 +14,7 @@ const AllNews = () => {
         const articlesRef = collection(db, "articles");
         const q = query(
           articlesRef,
-          orderBy("date", "desc"),
+          orderBy("date", "asc"),
           orderBy("time", "desc")
         );
         const querySnapshot = await getDocs(q);

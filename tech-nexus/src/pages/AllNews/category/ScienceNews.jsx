@@ -15,7 +15,7 @@ const ScienceNews = () => {
         const q = query(
           articlesRef,
           where("category", "==", "Science"),
-          orderBy("date", "desc"),
+          orderBy("date", "asc"),
           orderBy("time", "desc")
         );
         const querySnapshot = await getDocs(q);

@@ -78,7 +78,7 @@ const ProfilePage = () => {
     const q = query(
       articlesRef,
       where("userId", "==", userId),
-      orderBy("date", "desc"),
+      orderBy("date", "asc"),
       orderBy("time", "desc")
     );
 
@@ -368,8 +368,7 @@ const ProfilePage = () => {
                     </td>
                     <td className={styles["small-column-3"]}>
                       {article.date}
-                      {" | "}
-                      {article.time}
+                      {" "}{article.time}
                     </td>
                     <td className={styles["small-column-4"]}>
                       {article.comments?.length || 0}

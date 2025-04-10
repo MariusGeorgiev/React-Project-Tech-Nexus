@@ -15,7 +15,7 @@ const HardwareNews = () => {
         const q = query(
           articlesRef,
           where("category", "==", "Hardware"),
-          orderBy("date", "desc"),
+          orderBy("date", "asc"),
           orderBy("time", "desc")
         );
         const querySnapshot = await getDocs(q);
