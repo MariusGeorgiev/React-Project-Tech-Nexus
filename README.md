@@ -125,26 +125,26 @@ These configurations ensure the best user experience with optimal UI layout and 
 ## **🖼️ Screenshots**
 
 ### **Home Page**
-<img src="" alt="Home Page" width="600">
+<img src="./tech-nexus/./src/assets/Home.png" alt="Home Page" width="600">
 
 ### **All News Page**
-<img src="" alt="All News Page" width="600">
+<img src="./tech-nexus/./src/assets/AllNewsPage.png" alt="All News Page" width="600">
 
 ### **Software News Page**
-<img src="" alt="Category Page" width="600">
+<img src="./tech-nexus/./src/assets/SoftwareNewsPage.png" alt="Category Page" width="600">
 
 ### **Details Article**
-<img src="" alt="Details Page" width="600">
+<img src="./tech-nexus/./src/assets/DetailsArticle.png" alt="Details Page" width="600">
 
 ### **Profile Page**
-<img src="" alt="Profile Page" width="600">
+<img src="./tech-nexus/./src/assets/ProfilePage.png" alt="Profile Page" width="600">
 
 ### **User Stats**
-<img src="" alt="User Stats Page" width="600">
+<img src="./tech-nexus/./src/assets/UsersStatsPage.png" alt="User Stats Page" width="600">
 
 ---
 
-## **🔮 Future Features**
+## **🔮 Future Improvements**
 - Add pagination for large news feeds
 - Implement Like/Dislike system for articles and comments
 - Add **dual language support** (English and Bulgarian) to improve accessibility to a broader audience
