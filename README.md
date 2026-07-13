@@ -6,8 +6,10 @@ Tech Nexus is a tech news platform that enables users to read, create, edit, and
 ---
 
 ## **🌐 Deployment**
-The Tech Nexus application is deployed and hosted on **Azure Static Web Apps**.  
-**🔗 [Live App – Tech Nexus](https://lively-stone-0e8181303.6.azurestaticapps.net)**
+The Tech Nexus application is deployed and hosted on **Azure Static Web Apps**.
+
+**🔗 [NEW Deploy Live App – Tech Nexus](https://technexus-react-project.web.app)**
+**🔗 [OLD Deploy Live App – Tech Nexus](https://lively-stone-0e8181303.6.azurestaticapps.net)**
 
 ---
 
